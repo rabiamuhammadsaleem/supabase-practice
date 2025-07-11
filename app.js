@@ -12,14 +12,21 @@ const formTitle = document.getElementById("formTitle");
 const loader = document.getElementById("loader");
 
 // ========== Toggle Forms ==========
-document.getElementById("switchToSignup").addEventListener("click", (e) => {
+let switchTosigup = document.getElementById("switchToSignup")
+
+
+switchTosigup && switchTosigup.addEventListener("click", (e) => {
   e.preventDefault();
   loginForm.classList.remove("active");
   signupForm.classList.add("active");
   formTitle.textContent = "Sign Up to InsideBox";
 });
 
-document.getElementById("switchToLogin").addEventListener("click", (e) => {
+
+
+let switchToLogin= document.getElementById("switchToLogin")
+
+switchToLogin && switchToLogin.addEventListener("click", (e) => {
   e.preventDefault();
   signupForm.classList.remove("active");
   loginForm.classList.add("active");
@@ -73,13 +80,18 @@ loginForm.addEventListener("submit", async (e) => {
 // Google
 // const googleBtn=document.getElementById("googleLogin").addEventListener("click", async () => {
 document.getElementById("googleLogin").addEventListener("click", async () => {
-  const { error } = await client.auth.signInWithOAuth({
+  const { data,error } = await client.auth.signInWithOAuth({
     provider: "google",
     options: {
-      redirectTo: "http://127.0.0.1:5500/home.html" 
+      redirectTo: window.location.origin + '/home.html',
+					queryParams: { access_type: 'offline', prompt: 'consent' },
+      // redirectTo: "http://127.0.0.1:5500/home.html" 
     }
   });
   if (error) alert("google login failed: " + error.message);
+  else{
+    console.log(data)
+  }
 });
 
 

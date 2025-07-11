@@ -1,0 +1,99 @@
+body {
+    margin: 0; padding: 20px;
+    font-family: 'Inter', sans-serif;
+    background: #f7f8fa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  .container {
+    background: #fff;
+    max-width: 420px;
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    padding: 30px 25px;
+  }
+  h2 { text-align: center; margin-bottom: 20px; }
+  form { display: none; flex-direction: column; gap: 18px; }
+  form.active { display: flex; }
+  input {
+    padding: 12px;
+    font-size: 1rem;
+    border: 1.5px solid #cfd8dc;
+    border-radius: 6px;
+    background: #f7f8fa;
+  }
+  button {
+    padding: 12px 0;
+    background: #2563eb;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    font-weight: 600;
+    font-size: 1.1rem;
+    cursor: pointer;
+  }
+  #loader {
+    display: none;
+    margin: 10px auto;
+    border: 4px solid #2563eb;
+    border-top-color: transparent;
+    border-radius: 50%;
+    width: 30px; height: 30px;
+    animation: spin 1s linear infinite;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  .divider {
+    text-align: center;
+    margin: 15px 0;
+    color: #999;
+    font-size: 0.9rem;
+    position: relative;
+  }
+  .divider::before, .divider::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 40%;
+    height: 1px;
+    background: #ddd;
+  }
+  .divider::before { left: 0; }
+  .divider::after { right: 0; }
+
+  .social-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 8px;   /* kam gap */
+    margin-top: 10px;
+  }
+  .social-btn {
+    width: 44px; height: 44px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: border-color 0.2s;
+  }
+  .social-btn:hover { border-color: #2563eb; }
+  .social-btn img { width: 24px; height: 24px; object-fit: contain; }
+  .logout-button {
+  background-color: #ef4444;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.logout-button:hover {
+  background-color: #dc2626;
+}
